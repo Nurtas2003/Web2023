@@ -26,3 +26,9 @@ def product_detail(request, id):
     except Product.DoesNotExist as e:
         return JsonResponse({'message': str(e)}, status=400)
     return JsonResponse(product.to_json())
+
+def category_products(request, id):
+    category = Category.objects.get(id=id)
+    products = Product.objects.filter(category=category)
+    products_json = [product.to_json() for product in products]
+    return JsonResponse(products_json, safe=False)
