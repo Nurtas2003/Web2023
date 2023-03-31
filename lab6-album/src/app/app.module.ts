@@ -44,23 +44,26 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    FormsModule,
-  ],
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AboutComponent,
-    AlbumsComponent,
-    AlbumDetailComponent,
-    AlbumPhotosComponent,
-    HeadComponent,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        FormsModule,
+    ],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        AlbumsComponent,
+        AlbumDetailComponent,
+        AlbumPhotosComponent,
+        HeadComponent,
+    ],
+    providers: [],
+    exports: [
+        HeadComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
