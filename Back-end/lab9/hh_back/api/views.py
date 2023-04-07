@@ -8,16 +8,16 @@ def company_list(request):
     companies_json = [company.to_json() for company in companies]
     return JsonResponse(companies_json, safe=False)
 
-def company_detail(request, company_id):
+def company_detail(request, id):
     try:
-        company = Company.objects.get(id=company_id)
+        company = Company.objects.get(id=id)
     except company.DoesNotExist as e:
         return JsonResponse({'message': str(e)}, status=400)
     return JsonResponse(company.to_json())
 
-def company_vacancies(request, company_id):
+def company_vacancies(request, id):
     try:
-        vacancies = Company.objects.get(id=company_id).vacancies.all()
+        vacancies = Company.objects.get(id=id).vacancies.all()
     except Exception as e:
         return JsonResponse({'message': str(e)}, status=400)
     vacancies_json=[vacancy.to_json() for vacancy in vacancies]
@@ -28,9 +28,9 @@ def vacancy_list(request):
     vacancy_json = [vacancy.to_json() for vacancy in vacancies]
     return JsonResponse(vacancy_json, safe=False)
 
-def vacancy_detail(request, vacancy_id):
+def vacancy_detail(request, id):
     try:
-        vacancy = Vacancy.objects.get(id=vacancy_id)
+        vacancy = Vacancy.objects.get(id=id)
     except Vacancy.DoesNotExist as e:
         return JsonResponse({'message': str(e)}, status=400)
     return JsonResponse(vacancy.to_json())
