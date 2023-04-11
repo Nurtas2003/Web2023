@@ -3,3 +3,5 @@ def string_splosion(str):
   for i in range(len(str)):
     s=s+str[:i+1]
   return s
+
+print(string_splosion('Nurtas'))
