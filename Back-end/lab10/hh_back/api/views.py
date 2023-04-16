@@ -1,11 +1,10 @@
 from django.http.response import JsonResponse
 from rest_framework.response import Response
 from .serializers import *
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from django.shortcuts import Http404
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
 
 # FUNCTION
 @api_view(['GET', 'POST'])
